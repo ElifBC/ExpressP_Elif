@@ -7,8 +7,10 @@ import session from "express-session";
 
 // ES Modules fix for __dirname
 import path, {dirname} from 'path';
-import { fileURLToPath } from 'url';
-const __dirname= dirname(fileURLToPath(import.meta,url));
+import {fileURLToPath} from 'url';
+//const url = require("url").URL;
+const __dirname= dirname(fileURLToPath(import.meta.url));
+
 
 // instantiate app-server
 const app = express();
