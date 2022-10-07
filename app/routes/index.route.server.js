@@ -12,6 +12,6 @@ router.get('/hello',displayHomePage);
 router.get('/about', displayAboutPage);
 router.get('/contact', displayContactPage);
 router.get('/projects', displayProjectsPage);
-router.get('/services', displayHobbiesPage);
+router.get('/hobbies', displayHobbiesPage);
 
 export default router;

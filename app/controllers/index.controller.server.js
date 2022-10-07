@@ -1,7 +1,7 @@
 // Index Controller
 
 export function displayHomePage(req, res, next){
-    res.render('index', {title: 'Home', page: 'home'});
+    res.render('index', {title: 'Elif B. Canatan -301245216', page: 'home'});
 
 };
 
