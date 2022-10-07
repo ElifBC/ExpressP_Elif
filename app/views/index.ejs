@@ -14,11 +14,19 @@
 <body>
     <!--header-->
    <%- include('components/header.ejs') %>
-   <img src="./content/images/purpleBrick.jpg" width="30%" height="auto">  </img>
+    
+      
+      <div class="row">
+        <div class="column">
+            <img src="./content/images/purpleBrick.jpg" alt="Purple Brick" style="width:1000px;height:400px;">
+        </div>
+        <div class="column">
+            <img src="./content/images/purpleBrick.jpg" alt="Purple Brick" style="width:1000px;height:400px;">
+        </div>
    <!--main-->
    <main>
     <%- include('content/' + page + '.ejs') %>
-    
+   
    </main>
     
 
