@@ -1,46 +1,13 @@
-// import express
-//Third Party Modules
-import express from "express"; 
-import cookieParser from "cookie-parser";
-import logger from 'morgan';
-import session from "express-session";
+import debug from 'debug';
+debug ('COMP229');
+import http from 'http';
+import { isPromise } from 'util/types';
 
-// ES Modules fix for __dirname
-import path, {dirname} from 'path';
-import {fileURLToPath} from 'url';
-//const url = require("url").URL;
-const __dirname= dirname(fileURLToPath(import.meta.url));
+import app from './app/app.js';
 
-// Import Router
-import indexRouter from './app/routes/index.route.server.js';
+const PORT = process.env.PORT || 3000;
+app.set('port', PORT);
 
-// instantiate app-server
-const app = express();
+const server = http.createServer(app);
 
-// setup ViewEngine EJS
-app.set('views', path.join(__dirname, '/app/views'));
-app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '/public')));
-app.use(express.static(path.join(__dirname, 'js')));
-app.use(session({
-    secret: 'MySecret',
-    saveUninitialized: false,
-    resave:false
-}));
-
-
-
-// add middleware to connect application
-// use routes
-app.use('/', indexRouter);
-
-
-// run app
-app.listen(3000);
-
-console.log('Server running at http://localhost:3000');
+server.listen(PORT);
